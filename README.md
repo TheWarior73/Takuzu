@@ -21,7 +21,7 @@ en respectant 3 règles :
         * Executer la fonction takuzu_graphique('grille4x4_1') pour utiliser la grille corespondante
 
 
-##Todo Liste
+## Todo Liste
 
 - [x] Creer le project github plus implementer les differents fichiers
 - [x] repartition des tâches
