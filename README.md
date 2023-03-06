@@ -25,5 +25,5 @@ en respectant 3 règles :
 
 - [x] Creer le project github plus implementer les differents fichiers
 - [x] repartition des tâches
-- [] Journal de bord
-- [] Test des fonctions + troubleshoot
+- [ ] Journal de bord
+- [ ] Test des fonctions + troubleshoot
