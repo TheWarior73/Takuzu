@@ -34,10 +34,23 @@ import sys
 def lecture(nom_fic):
     """Cette fonction prend en paramètre :
     - une chaine de caractères désignant un nom de fichier (sans l'extension .txt)
-    Elle renvoie une liste de liste grille contenant des 0, des 1 et des 9 représentant la situation de départ dans la grille de takuzu avec :
-    grille[l][c] contient 0 si la case de la ligne l et de la colonne c contient 0, 1 si elle contient 1 et 9 si elle est vide
+    Elle renvoie une liste de liste automate contenant des 0 et des 1 avec :
+    grille[l][c] contient 0 si la case de la ligne l et de la colonne c représente une cellule morte et 1 si elle c'est une cellule vivante.
     """
-    pass
+    # Ouverture du fichier en mode lecture ('r'ead)
+    fichier = open(nom_fic + '.txt', 'r')
+    tempo = []
+    # Parcours des lignes du fichier :
+    for ligne in fichier:
+        # On ajoute à automate la ligne :
+        # - débarassée des espaces superflus (strip())
+        # - transformée en liste de caractères (list( ... ))
+        tempo.append(list(ligne.strip()))
+    # Fermeture du fichier :
+    fichier.close()
+    # Conversion des éléments en 0/1 à la place de '0'/'1'
+    grille = [ [ int(tempo[l][c]) for c in range(len(tempo[l])) ] for l in range(len(tempo))]
+    return grille
 
 
 
@@ -45,10 +58,27 @@ def affiche(g):
     """Cette fonction affiche la grille formatée comme il faut dans la console d'éxecution
     paramètre : (list) liste de liste carré et de taille pair
     """
-    pass  
-   
-    
-
+    temp = ''
+    grille = lecture(g)
+    if len(grille) == 4 :
+        print('  A B C D')
+    elif len(grille) == 6 :
+        print('  A B C D E F')
+    elif len(grille) == 8 :
+        print('  A B C D E F G H')
+    elif len(grille) == 10 :
+        print('  A B C D E F G H I J')
+    for l in range(len(grille)) :
+        for c in range(len(grille[0])) :
+            if grille[l][c] == 0:
+                temp += ' 0'
+            elif grille[l][c] == 1:
+                temp += ' 1'
+            elif grille[l][c] == 9:
+                temp += ' .'
+        print(str(l) + temp)
+        temp = ''
+    pass
 #
 ###
 #####
